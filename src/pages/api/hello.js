@@ -2,14 +2,10 @@
 // This is your API endpoint at /api/hello
 import { SecretVaultWrapper } from "secretvaults";
 
-// DID: did:nil:testnet:nillion194klt5w2cqu6ftz3lkkkns7rcss67m7k8eyzea
-// Public Key: 02b10d940ffba1ac34ba0d9c84e95931e41c97649f397d4ef506e75da0ecbdc741
-// Private Key: e9f2ecea77d9edd325b48c5441a1074487ef7d7e7c9c266ff352dcad23433e6f
-
 const orgConfig = {
   orgCredentials: {
-    secretKey: "e9f2ecea77d9edd325b48c5441a1074487ef7d7e7c9c266ff352dcad23433e6f", // process.env.NILLION_ORG_SECRET_KEY,
-    orgDid: "did:nil:testnet:nillion194klt5w2cqu6ftz3lkkkns7rcss67m7k8eyzea" // process.env.NILLION_ORG_DID,
+    secretKey: "", // process.env.NILLION_ORG_SECRET_KEY,
+    orgDid: "" // process.env.NILLION_ORG_DID,
   },
   nodes: [
     {
