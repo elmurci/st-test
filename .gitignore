@@ -2,5 +2,9 @@ node_modules
 build
 npm-debug.log
 .env
+.cache
+.vscode
+.idea
+.next
 .DS_Store
 
