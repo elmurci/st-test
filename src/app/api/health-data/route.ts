@@ -21,9 +21,9 @@ export async function POST(request: NextRequest) {
 
     const schemaId = "c95e1c7c-7eec-4492-85b2-1c223de669f5"; //process.env.NILLION_SCHEMA_ID;
 
-    console.log("[SCHEMA ID]", schemaId);
+    // console.log("[SCHEMA ID]", schemaId);
 
-    console.log("[DATA]", data);
+    // console.log("[DATA]", data);
 
     // Transform the data while preserving all original fields except 'id'
     const transformedData = data.map((item: any) => {
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
 
     const result = await writeHealthData(schemaId, transformedData);
 
-    console.log("[RESULT]", result);
+    // console.log("[RESULT]", result);
 
     if (
       result.status === 400 ||

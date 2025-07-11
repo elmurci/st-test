@@ -46,7 +46,7 @@ export async function getHealthData(schemaId) {
 export async function writeHealthData(schemaId, data) {
   const collection = await getHealthData(schemaId);
 
-  console.log("[COLLECTION]", JSON.stringify(collection.nodesJwt));
+  // console.log("[COLLECTION]", JSON.stringify(collection.nodesJwt));
 
   return collection.writeToNodes(data);
 }
