@@ -335,6 +335,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      did-jwt:
+        specifier: ^8.0.17
+        version: 8.0.17
       dotenv:
         specifier: ^16.4.5
         version: 16.4.7
@@ -7603,8 +7606,8 @@ packages:
   dezalgo@1.0.4:
     resolution: {integrity: sha512-rXSP0bf+5n0Qonsb+SVVfNfIsimO4HEtmnIpPHY8Q1UCzKlQrDMfdobr8nJOOsRgWCyMRqeSBQzmWUMq7zvVig==}
 
-  did-jwt@8.0.8:
-    resolution: {integrity: sha512-XlL71xneBxwGiED4yB+LklGpBnCwY3/ZpIf9o3e+3ubo1BLDaPppfhZTevUKG4UXWAqZC5/WT2hD/WfqAhl8FA==}
+  did-jwt@8.0.17:
+    resolution: {integrity: sha512-qWPog796seH8CzvNShvqvs6YeCRVAYWmKzcPtirnhvH6wjiFvhquztJZwr5E9VHnTosW6V7bclWzrp7/HGJbSw==}
 
   did-resolver@4.1.0:
     resolution: {integrity: sha512-S6fWHvCXkZg2IhS4RcVHxwuyVejPR7c+a4Go0xbQ9ps5kILa8viiYQgrM4gfTyeTjJ0ekgJH9gk/BawTpmkbZA==}
@@ -23554,7 +23557,7 @@ snapshots:
       asap: 2.0.6
       wrappy: 1.0.2
 
-  did-jwt@8.0.8:
+  did-jwt@8.0.17:
     dependencies:
       '@noble/ciphers': 1.2.1
       '@noble/curves': 1.8.1
@@ -27287,7 +27290,7 @@ snapshots:
   nillion-sv-wrappers@1.0.9:
     dependencies:
       '@nillion/nilql': 0.0.0-alpha.14
-      did-jwt: 8.0.8
+      did-jwt: 8.0.17
       dotenv: 16.4.7
       uuid: 11.1.0
 
@@ -29283,7 +29286,7 @@ snapshots:
   secretvaults@0.0.0-alpha.4:
     dependencies:
       '@nillion/nilql': 0.0.0-alpha.14
-      did-jwt: 8.0.8
+      did-jwt: 8.0.17
       dotenv: 16.4.7
       uuid: 11.1.0
 
