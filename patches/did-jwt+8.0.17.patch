@@ -1,5 +1,5 @@
 diff --git a/node_modules/did-jwt/lib/index.module.js b/node_modules/did-jwt/lib/index.module.js
-index a4f395f..4d67c0a 100644
+index a4f395f..c89e5e8 100644
 --- a/node_modules/did-jwt/lib/index.module.js
 +++ b/node_modules/did-jwt/lib/index.module.js
 @@ -1977,6 +1977,7 @@ const createJWT = function (payload, {
@@ -18,15 +18,17 @@ index a4f395f..4d67c0a 100644
      return createJWS(fullPayload, signer, header, {
        canonicalize
      });
-@@ -2023,12 +2025,15 @@ const createJWT = function (payload, {
+@@ -2023,12 +2025,17 @@ const createJWT = function (payload, {
  const createJWS = function (payload, signer, header = {}, options = {}) {
    try {
      if (!header.alg) header.alg = defaultAlg;
-+    console.log('[createJWS] *************** (1)', header);
++    console.log('[createJWS] *************** (header)', header);
++    console.log('[createJWS] *************** (payload)', payload);
++    console.log('[createJWS] *************** (options)', options);
      const encodedPayload = typeof payload === 'string' ? payload : encodeSection(payload, options.canonicalize);
      const signingInput = [encodeSection(header, options.canonicalize), encodedPayload].join('.');
      const jwtSigner = SignerAlg(header.alg);
-+    console.log('[createJWS] *************** (2)', encodedPayload, signingInput, jwtSigner);
++    console.log('[createJWS] *************** (2)', encodedPayload, "***", signingInput, "***", jwtSigner);
      return Promise.resolve(jwtSigner(signingInput, signer)).then(function (signature) {
        // JWS Compact Serialization
        // https://www.rfc-editor.org/rfc/rfc7515#section-7.1
@@ -34,3 +36,13 @@ index a4f395f..4d67c0a 100644
        return [signingInput, signature].join('.');
      });
    } catch (e) {
+@@ -2043,7 +2050,9 @@ const defaultAlg = 'ES256K';
+ const DID_JSON = 'application/did+json'; // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
+ function encodeSection(data, shouldCanonicalize = false) {
++  console.log('[encodeSection] *************** (shouldCanonicalize)', shouldCanonicalize, data, JSON.stringify(data));
+   if (shouldCanonicalize) {
++    console.log('[encodeSection] *************** (canonicalizeData)', canonicalizeData(data));
+     return encodeBase64url(canonicalizeData(data));
+   } else {
+     return encodeBase64url(JSON.stringify(data));
