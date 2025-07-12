@@ -1,12 +1,12 @@
 diff --git a/node_modules/did-jwt/lib/index.module.js b/node_modules/did-jwt/lib/index.module.js
-index a4f395f..564e9f2 100644
+index a4f395f..08318a3 100644
 --- a/node_modules/did-jwt/lib/index.module.js
 +++ b/node_modules/did-jwt/lib/index.module.js
 @@ -19,6 +19,7 @@ const u8a = {
    concat
  };
  function bytesToBase64url(b) {
-+  console.log('[bytesToBase64url] encoding b', b, "u8a.toString(b, 'base64url')", u8a.toString(b, 'base64url'), "***", JSON.stringify(u8a.toString(b, 'base64url')));
++  console.log('[bytesToBase64url] encoding', "b", b, "u8a.toString(b, 'base64url')", u8a.toString(b, 'base64url'), "***", JSON.stringify(u8a.toString(b, 'base64url')));
    return u8a.toString(b, 'base64url');
  }
  function base64ToBytes(s) {
