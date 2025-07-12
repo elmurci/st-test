@@ -1,5 +1,5 @@
 diff --git a/node_modules/did-jwt/lib/index.module.js b/node_modules/did-jwt/lib/index.module.js
-index a4f395f..c89e5e8 100644
+index a4f395f..76999f6 100644
 --- a/node_modules/did-jwt/lib/index.module.js
 +++ b/node_modules/did-jwt/lib/index.module.js
 @@ -1977,6 +1977,7 @@ const createJWT = function (payload, {
@@ -18,7 +18,7 @@ index a4f395f..c89e5e8 100644
      return createJWS(fullPayload, signer, header, {
        canonicalize
      });
-@@ -2023,12 +2025,17 @@ const createJWT = function (payload, {
+@@ -2023,12 +2025,18 @@ const createJWT = function (payload, {
  const createJWS = function (payload, signer, header = {}, options = {}) {
    try {
      if (!header.alg) header.alg = defaultAlg;
@@ -27,16 +27,17 @@ index a4f395f..c89e5e8 100644
 +    console.log('[createJWS] *************** (options)', options);
      const encodedPayload = typeof payload === 'string' ? payload : encodeSection(payload, options.canonicalize);
      const signingInput = [encodeSection(header, options.canonicalize), encodedPayload].join('.');
++    console.log('[createJWS] *************** (2)', encodeSection(header, options.canonicalize), "***", encodedPayload);
      const jwtSigner = SignerAlg(header.alg);
-+    console.log('[createJWS] *************** (2)', encodedPayload, "***", signingInput, "***", jwtSigner);
++    console.log('[createJWS] *************** (3)', jwtSigner);
      return Promise.resolve(jwtSigner(signingInput, signer)).then(function (signature) {
        // JWS Compact Serialization
        // https://www.rfc-editor.org/rfc/rfc7515#section-7.1
-+      console.log('[createJWS] *************** (3)', signingInput);
++      console.log('[createJWS] *************** (4)', signingInput);
        return [signingInput, signature].join('.');
      });
    } catch (e) {
-@@ -2043,7 +2050,9 @@ const defaultAlg = 'ES256K';
+@@ -2043,7 +2051,9 @@ const defaultAlg = 'ES256K';
  const DID_JSON = 'application/did+json'; // eslint-disable-next-line @typescript-eslint/no-explicit-any
  
  function encodeSection(data, shouldCanonicalize = false) {
