@@ -458,9 +458,6 @@ importers:
       nextjs-cors:
         specifier: ^2.2.0
         version: 2.2.0(next@14.2.25(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      nillion-sv-wrappers:
-        specifier: ^1.0.9
-        version: 1.0.9
       node-cron:
         specifier: ^3.0.3
         version: 3.0.3
@@ -10371,9 +10368,6 @@ packages:
     resolution: {integrity: sha512-FZu/A+L59J4POJNqwXYyCPDvsLDeu5HjSBvytzS6lsrJeDz5cmnH45zV+VoNic0hjaeER9xGaiIjZIWzEHnxQg==}
     peerDependencies:
       next: ^8.1.1-canary.54 || ^9.0.0 || ^10.0.0-0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
-
-  nillion-sv-wrappers@1.0.9:
-    resolution: {integrity: sha512-bYCwswugV4nFwQcvIUHaeDWLp9nN4YWtrptoE2LRPShHTkCu/9wc6WiTQoZaoSPSOZrqRrNT9w4lFhb2/XHKjQ==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -27286,13 +27280,6 @@ snapshots:
     dependencies:
       cors: 2.8.5
       next: 14.2.25(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-
-  nillion-sv-wrappers@1.0.9:
-    dependencies:
-      '@nillion/nilql': 0.0.0-alpha.14
-      did-jwt: 8.0.17
-      dotenv: 16.4.7
-      uuid: 11.1.0
 
   no-case@3.0.4:
     dependencies:
