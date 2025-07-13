@@ -33,8 +33,6 @@ export async function getHealthData(schemaId) {
     schemaId
   );
 
-  console.log("[SVWRAPPER]", svWrapper);
-
   await svWrapper.init();
 
   // const tokens = await svWrapper.generateTokensForAllNodes();
