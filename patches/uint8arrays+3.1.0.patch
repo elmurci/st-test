@@ -1,0 +1,27 @@
+diff --git a/node_modules/uint8arrays/cjs/src/to-string.js b/node_modules/uint8arrays/cjs/src/to-string.js
+index 60041ca..14bb318 100644
+--- a/node_modules/uint8arrays/cjs/src/to-string.js
++++ b/node_modules/uint8arrays/cjs/src/to-string.js
+@@ -5,14 +5,20 @@ Object.defineProperty(exports, '__esModule', { value: true });
+ var bases = require('./util/bases.js');
+ 
+ function toString(array, encoding = 'utf8') {
++  console.log('[uint8arrays] array', array, 'encoding', encoding);
+   const base = bases[encoding];
++  console.log('[uint8arrays] bases[encoding]', bases[encoding]);
+   if (!base) {
+     throw new Error(`Unsupported encoding "${ encoding }"`);
+   }
+   if ((encoding === 'utf8' || encoding === 'utf-8') && globalThis.Buffer != null && globalThis.Buffer.from != null) {
+-    return globalThis.Buffer.from(array.buffer, array.byteOffset, array.byteLength).toString('utf8');
++    const p = globalThis.Buffer.from(array.buffer, array.byteOffset, array.byteLength).toString('utf8');
++    console.log('[uint8arrays] por IF', p);
++    return p;
+   }
+-  return base.encoder.encode(array).substring(1);
++  const a = base.encoder.encode(array).substring(1);
++  console.log('[uint8arrays] del final', a);
++  return a;
+ }
+ 
+ exports.toString = toString;
