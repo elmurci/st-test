@@ -38,6 +38,7 @@ const nextConfig = {
       "pino-pretty",
       "lokijs",
       "encoding",
+      "uint8arrays",
     ];
 
     if (!isServer) {
