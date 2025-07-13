@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 
 import { writeHealthData } from "./nillionOrgConfig";
 import { NextRequest, NextResponse } from "next/server";
+import { toString } from 'uint8arrays';
 
 function convertBigIntToString(obj: any) {
   return JSON.parse(
