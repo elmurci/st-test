@@ -1,0 +1,32 @@
+diff --git a/node_modules/uint8arrays/src/to-string.ts b/node_modules/uint8arrays/src/to-string.ts
+index 5cf264f..298d12c 100644
+--- a/node_modules/uint8arrays/src/to-string.ts
++++ b/node_modules/uint8arrays/src/to-string.ts
+@@ -9,13 +9,19 @@ export type { SupportedEncodings }
+  *
+  * Also `ascii` which is similar to node's 'binary' encoding.
+  */
+-export function toString (array: Uint8Array, encoding: SupportedEncodings = 'utf8'): string {
+-  const base = bases[encoding]
+-
+-  if (base == null) {
+-    throw new Error(`Unsupported encoding "${encoding}"`)
++export function toString(array, encoding = 'utf8') {
++  console.log('[uint8arrays] array', array, 'encoding', encoding);
++  const base = bases[encoding];
++  console.log('[uint8arrays] bases[encoding]', bases[encoding]);
++  if (!base) {
++    throw new Error(`Unsupported encoding "${ encoding }"`);
+   }
+-
+-  // strip multibase prefix
+-  return base.encoder.encode(array).substring(1)
++  if ((encoding === 'utf8' || encoding === 'utf-8') && globalThis.Buffer != null && globalThis.Buffer.from != null) {
++    const p = globalThis.Buffer.from(array.buffer, array.byteOffset, array.byteLength).toString('utf8');
++    console.log('[uint8arrays] por IF', p);
++    return p;
++  }
++  const a = base.encoder.encode(array).substring(1);
++  console.log('[uint8arrays] del final', a);
++  return a;
+ }
