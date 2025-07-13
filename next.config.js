@@ -37,7 +37,6 @@ const nextConfig = {
       ...(config.externals || []),
       "pino-pretty",
       "lokijs",
-      "encoding",
     ];
 
     if (!isServer) {
