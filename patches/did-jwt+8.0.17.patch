@@ -1,16 +1,18 @@
 diff --git a/node_modules/did-jwt/lib/index.module.js b/node_modules/did-jwt/lib/index.module.js
-index a4f395f..08318a3 100644
+index a4f395f..901a88e 100644
 --- a/node_modules/did-jwt/lib/index.module.js
 +++ b/node_modules/did-jwt/lib/index.module.js
-@@ -19,6 +19,7 @@ const u8a = {
+@@ -19,6 +19,9 @@ const u8a = {
    concat
  };
  function bytesToBase64url(b) {
-+  console.log('[bytesToBase64url] encoding', "b", b, "u8a.toString(b, 'base64url')", u8a.toString(b, 'base64url'), "***", JSON.stringify(u8a.toString(b, 'base64url')));
++  console.log("[bytesToBase64url] toString", u8a.toString(b, 'base64url'));
++  console.log("[bytesToBase64url] toString Stringified", JSON.stringify(u8a.toString(b, 'base64url')));
++  console.log('[bytesToBase64url] encoding', b);
    return u8a.toString(b, 'base64url');
  }
  function base64ToBytes(s) {
-@@ -253,6 +254,7 @@ function hexToBytes(s, minLength) {
+@@ -253,6 +256,7 @@ function hexToBytes(s, minLength) {
    return u8a.fromString(input.toLowerCase(), 'base16');
  }
  function encodeBase64url(s) {
@@ -18,7 +20,7 @@ index a4f395f..08318a3 100644
    return bytesToBase64url(u8a.fromString(s));
  }
  function decodeBase64url(s) {
-@@ -1977,6 +1979,7 @@ const createJWT = function (payload, {
+@@ -1977,6 +1981,7 @@ const createJWT = function (payload, {
    canonicalize
  }, header = {}) {
    try {
@@ -26,7 +28,7 @@ index a4f395f..08318a3 100644
      if (!signer) throw new Error('missing_signer: No Signer functionality has been configured');
      if (!issuer) throw new Error('missing_issuer: No issuing DID has been configured');
      if (!header.typ) header.typ = 'JWT';
-@@ -1998,6 +2001,7 @@ const createJWT = function (payload, {
+@@ -1998,6 +2003,7 @@ const createJWT = function (payload, {
        ...payload,
        iss: issuer
      };
@@ -34,7 +36,7 @@ index a4f395f..08318a3 100644
      return createJWS(fullPayload, signer, header, {
        canonicalize
      });
-@@ -2023,12 +2027,19 @@ const createJWT = function (payload, {
+@@ -2023,12 +2029,19 @@ const createJWT = function (payload, {
  const createJWS = function (payload, signer, header = {}, options = {}) {
    try {
      if (!header.alg) header.alg = defaultAlg;
@@ -54,7 +56,7 @@ index a4f395f..08318a3 100644
        return [signingInput, signature].join('.');
      });
    } catch (e) {
-@@ -2043,6 +2054,7 @@ const defaultAlg = 'ES256K';
+@@ -2043,6 +2056,7 @@ const defaultAlg = 'ES256K';
  const DID_JSON = 'application/did+json'; // eslint-disable-next-line @typescript-eslint/no-explicit-any
  
  function encodeSection(data, shouldCanonicalize = false) {
