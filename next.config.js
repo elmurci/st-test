@@ -38,7 +38,7 @@ const nextConfig = {
       "pino-pretty",
       "lokijs",
       "encoding",
-      "uint8arrays",
+      "did-jwt",
     ];
 
     if (!isServer) {
